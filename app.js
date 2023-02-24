@@ -1,12 +1,24 @@
-const validator = require('validator');
+//const validator = require('validator');
 const getNotes = require('./notes.js');
+const command = process.argv[2];
+const yargs = require('yargs');
 
-const msg = getNotes();
-console.log(msg);
+yargs.version('1.0');
 
-console.log(validator.isURL('htps://ww.google.com'));
+yargs.command({
+    command: 'add',
+    describe: 'Add a new note',
+    handler: function(){
+        console.log('Adding a new note');
+    }
+});
+
+console.log(yargs.argv);
 
 
+////////////////////////////////
+
+//console.log(validator.isURL('htps://ww.google.com'));
 
 ////////////////////////////////
 // const add = require('./utils.js')
