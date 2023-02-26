@@ -1,22 +1,25 @@
-const chalk = require('chalk');
-const log = console.log;
+//const validator = require('validator');
 const getNotes = require('./notes.js');
 const command = process.argv[2];
+const yargs = require('yargs');
 
-//log(chalk.green('Success!'));
-// log(chalk.red.inverse.bold('Error!'));
-// log(chalk.yellow('Warning!'));
-// log(chalk.yellow.bold('Bold!'));
+yargs.version('1.0');
 
-if (command === 'add') {
-    log(chalk.green.bold('Adding a new note...'));
-} else if (command === 'remove') {
-    log(chalk.red.bold('Removing a note...'));
-}
+yargs.command({
+    command: 'add',
+    describe: 'Add a new note',
+    handler: function(){
+        console.log('Adding a new note');
+    }
+});
+
+console.log(yargs.argv);
+
 
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////
 // const validator = require('validator');
+
 
 // const msg = getNotes();
 
@@ -27,6 +30,10 @@ if (command === 'add') {
 // console.log(validator.isEmail('envkt@example.com'));
 
 // console.log(validator.isLength("Hello je suis un message", { min: 0, max: 50}));
+
+////////////////////////////////
+
+//console.log(validator.isURL('htps://ww.google.com'));
 
 ////////////////////////////////
 // const add = require('./utils.js')
