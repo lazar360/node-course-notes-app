@@ -1,4 +1,4 @@
-//const getNotes = require('./notes.js');
+const getNotes = require('./notes.js');
 //const command = process.argv[2];
 const chalk = require('chalk');
 const yargs = require('yargs');
